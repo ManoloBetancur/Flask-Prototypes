@@ -1,0 +1,26 @@
+/* styles.css */
+
+/* Style the table */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Style table headers */
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style table cells */
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Style alternate rows for better readability */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

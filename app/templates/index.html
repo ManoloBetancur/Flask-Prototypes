@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async Table Update</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        async function fetchData() {
+            const tableBody = document.querySelector('#data-table tbody');
+            
+            while (true) {
+                const response = await fetch('/fetch_data'); // Add a route to fetch data
+                const data = await response.json();
+
+                if (!data) {
+                    break;
+                }
+
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `<td>${data.id}</td><td>${data.value}</td>`;
+                tableBody.appendChild(newRow);
+            }
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>
